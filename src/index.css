@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* React Toastify Overrides */
+@import 'react-toastify/dist/ReactToastify.css';
+
+.Toastify__toast-container {
+  @apply z-[9999];
+  width: 320px;
+}
+
+.Toastify__toast {
+  @apply bg-surface border border-slate-600 text-white rounded-lg shadow-2xl;
+  min-height: 64px;
+}
+
+.Toastify__toast--success {
+  @apply bg-gradient-to-r from-success/20 to-success/10 border-success/30;
+}
+
+.Toastify__toast--error {
+  @apply bg-gradient-to-r from-error/20 to-error/10 border-error/30;
+}
+
+.Toastify__toast--warning {
+  @apply bg-gradient-to-r from-warning/20 to-warning/10 border-warning/30;
+}
+
+.Toastify__toast--info {
+  @apply bg-gradient-to-r from-info/20 to-info/10 border-info/30;
+}
+
+.Toastify__progress-bar {
+  @apply bg-gradient-to-r from-primary to-secondary;
+}
+
+.Toastify__close-button {
+  @apply text-white hover:text-gray-300;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-800/50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-primary to-secondary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-primary/80 to-secondary/80;
+}
+
+/* Glass morphism utilities */
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+.glass-subtle {
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+}
+
+/* Gradient text utilities */
+.gradient-text {
+  @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+}
+
+.gradient-text-success {
+  @apply bg-gradient-to-r from-success to-emerald-400 bg-clip-text text-transparent;
+}
+
+/* File drop zone styling */
+.drop-zone-active {
+  @apply border-primary bg-primary/5;
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+.drop-zone-hover {
+  @apply border-secondary bg-secondary/5;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+/* Progress bar animations */
+.progress-bar {
+  transition: width 0.3s ease-out;
+}
+
+/* File item animations */
+.file-item-enter {
+  @apply animate-bounce-in;
+}
+
+.file-item-exit {
+  @apply transition-all duration-300 opacity-0 scale-95 translate-y-2;
+}
+
+/* Button hover effects */
+.btn-primary {
+  @apply bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90;
+  transition: all 0.2s ease-out;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+.btn-success {
+  @apply bg-gradient-to-r from-success to-emerald-400 hover:from-success/90 hover:to-emerald-400/90;
+  transition: all 0.2s ease-out;
+}
+
+.btn-success:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.2s ease-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}

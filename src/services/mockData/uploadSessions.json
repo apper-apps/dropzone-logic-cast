@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 1,
+    "files": [1, 2, 3],
+    "totalSize": 8314456,
+    "shareLink": "https://dropzone.app/share/abc123def456",
+    "expiresAt": "2024-01-22T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "files": [],
+    "totalSize": 0,
+    "shareLink": "https://dropzone.app/share/xyz789ghi012",
+    "expiresAt": "2024-01-22T15:45:00Z"
+  }
+]

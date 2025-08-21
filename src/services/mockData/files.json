@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 1,
+    "name": "presentation.pdf",
+    "size": 2048576,
+    "type": "application/pdf",
+    "uploadProgress": 100,
+    "uploadSpeed": 0,
+    "status": "completed",
+    "url": "https://example.com/files/presentation.pdf",
+    "thumbnailUrl": null,
+    "uploadedAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "name": "vacation-photo.jpg",
+    "size": 5242880,
+    "type": "image/jpeg",
+    "uploadProgress": 100,
+    "uploadSpeed": 0,
+    "status": "completed",
+    "url": "https://example.com/files/vacation-photo.jpg",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=150&h=150&fit=crop&crop=center",
+    "uploadedAt": "2024-01-15T11:15:00Z"
+  },
+  {
+    "Id": 3,
+    "name": "report.docx",
+    "size": 1024000,
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "uploadProgress": 100,
+    "uploadSpeed": 0,
+    "status": "completed",
+    "url": "https://example.com/files/report.docx",
+    "thumbnailUrl": null,
+    "uploadedAt": "2024-01-15T14:20:00Z"
+  }
+]
