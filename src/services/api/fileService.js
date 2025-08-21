@@ -297,7 +297,7 @@ const fileService = {
     }
   },
 
-  // Delete file
+// Delete file
   async delete(id) {
     await delay(300);
     try {
@@ -317,60 +317,9 @@ const fileService = {
       console.error(`Error deleting file with ID ${id}:`, error.message);
       throw error;
     }
-  }
-};
-
-export default fileService;
-
-const fileService = {
-  async getAll() {
-    await new Promise(resolve => setTimeout(resolve, 300));
-    return [...files];
   },
 
-  async getById(id) {
-    await new Promise(resolve => setTimeout(resolve, 200));
-    const file = files.find(f => f.Id === parseInt(id));
-    return file ? { ...file } : null;
-  },
-
-  async create(fileData) {
-    await new Promise(resolve => setTimeout(resolve, 500));
-    const newId = Math.max(...files.map(f => f.Id), 0) + 1;
-    const newFile = {
-      Id: newId,
-      uploadProgress: 0,
-      uploadSpeed: 0,
-      status: "uploading",
-      url: "",
-      thumbnailUrl: null,
-      uploadedAt: new Date().toISOString(),
-      ...fileData
-    };
-    files.push(newFile);
-    return { ...newFile };
-  },
-
-  async update(id, updates) {
-    await new Promise(resolve => setTimeout(resolve, 300));
-    const index = files.findIndex(f => f.Id === parseInt(id));
-    if (index !== -1) {
-      files[index] = { ...files[index], ...updates };
-      return { ...files[index] };
-    }
-    return null;
-  },
-
-  async delete(id) {
-    await new Promise(resolve => setTimeout(resolve, 400));
-    const index = files.findIndex(f => f.Id === parseInt(id));
-    if (index !== -1) {
-      const deleted = files.splice(index, 1)[0];
-      return { ...deleted };
-    }
-    return null;
-  },
-
+  // Upload file with progress tracking
   async uploadFile(file, onProgress) {
     const createdFile = await this.create({
       name: file.name,
@@ -408,6 +357,7 @@ const fileService = {
     });
   },
 
+  // Generate thumbnail for image files
   async generateThumbnail(file) {
     if (file.type.startsWith("image/")) {
       // Simulate thumbnail generation
