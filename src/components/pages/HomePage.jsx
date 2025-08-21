@@ -8,17 +8,27 @@ import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
 import fileService from "@/services/api/fileService";
 import uploadSessionService from "@/services/api/uploadSessionService";
+import { useSelector } from 'react-redux';
+import { useContext } from 'react';
+import { AuthContext } from '../../App';
+import Button from '@/components/atoms/Button';
 
 const HomePage = () => {
-  const [files, setFiles] = useState([]);
+const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
   const [currentSession, setCurrentSession] = useState(null);
+  
+  // Get user and auth methods
+  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const { logout } = useContext(AuthContext);
 
   useEffect(() => {
-    loadInitialData();
-  }, []);
+    if (isAuthenticated) {
+      loadInitialData();
+    }
+  }, [isAuthenticated]);
 
   const loadInitialData = async () => {
     try {
@@ -166,7 +176,7 @@ const HomePage = () => {
             </div>
 
             <div className="flex items-center space-x-6 text-sm text-slate-400">
-              <div className="flex items-center space-x-2">
+<div className="flex items-center space-x-2">
                 <ApperIcon name="Files" size={16} className="text-success" />
                 <span>{files.length} files</span>
               </div>
@@ -176,6 +186,27 @@ const HomePage = () => {
                   <span>{(totalSize / (1024 * 1024)).toFixed(1)} MB</span>
                 </div>
               )}
+              
+              {/* User info and logout */}
+              <div className="flex items-center space-x-4 ml-auto">
+                {user && (
+                  <div className="flex items-center space-x-2">
+                    <ApperIcon name="User" size={16} className="text-primary" />
+                    <span className="text-sm text-slate-300">
+                      {user.firstName} {user.lastName}
+                    </span>
+                  </div>
+                )}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={logout}
+                  className="text-slate-300 border-slate-500 hover:bg-slate-700"
+                >
+                  <ApperIcon name="LogOut" size={16} className="mr-1" />
+                  Logout
+                </Button>
+              </div>
             </div>
           </div>
         </div>
